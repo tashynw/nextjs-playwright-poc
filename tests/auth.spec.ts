@@ -1,11 +1,9 @@
 import { test, expect } from "@playwright/test";
 import { mockUserData } from "./factory/auth";
 
-const baseUrl = `http:localhost:3000`;
-
 test("sign up and login", async ({ page }) => {
   const userData = mockUserData();
-  await page.goto(`${baseUrl}/signup`);
+  await page.goto(`/signup`);
 
   const nameInput = page.locator('input[name="name"]');
   const emailInput = page.locator('input[name="email"]');
@@ -30,4 +28,6 @@ test("sign up and login", async ({ page }) => {
   await expect(page.locator('button:has-text("Log out")')).toContainText(
     "Log out"
   );
+
+  await page.goto(`/api/tests/cleanup`);
 });
