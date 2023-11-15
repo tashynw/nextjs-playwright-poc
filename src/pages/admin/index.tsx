@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Button, HStack, Heading, Spacer, VStack } from "@chakra-ui/react";
 import MainLayout from "~/components/Layout/Sidebar";
 import React from "react";
