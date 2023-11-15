@@ -5,6 +5,18 @@ on:
   pull_request:
     branches: [main, master]
 jobs:
+  test_setup:
+    name: Test setup
+    runs-on: ubuntu-latest
+    outputs:
+      preview_url: ${{ steps.waitForVercelPreviewDeployment.outputs.url }}
+    steps:
+      - name: Wait for Vercel preview deployment to be ready
+        uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
+        id: waitForVercelPreviewDeployment
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 300
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
@@ -16,9 +28,9 @@ jobs:
         with:
           node-version: 18
       - name: Install dependencies
-        run: npm ci
+        run: yarn
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: yarn playwright install
       - name: Run Playwright tests
         run: npx playwright test
       - uses: actions/upload-artifact@v3
