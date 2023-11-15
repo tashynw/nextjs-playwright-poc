@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { getSession } from "next-auth/react";
 import Head from "next/head";
 

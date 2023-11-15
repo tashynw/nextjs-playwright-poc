@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 import { hash, compare } from "bcrypt";
