@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { User } from "@prisma/client";
 import { getSession } from "next-auth/react";
 

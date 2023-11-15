@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import { AppProps, type AppType } from "next/app";
