@@ -16,7 +16,7 @@ jobs:
         id: waitFor200
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          max_timeout: 100
+          max_timeout: 300
   test:
     needs: test_setup
     timeout-minutes: 10
