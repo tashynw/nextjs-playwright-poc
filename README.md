@@ -1,7 +1,8 @@
 # Deployment Help
 
 Note that you will have to visit Vercel (or your preferred hoster) and modify the deployment protection to allow the github action package to visit the preview URL.
-For free tier users, the option for this is to disable protection entirely (for vercel users)
+For free tier users, the option for this is to disable protection entirely (for vercel users). Also make note of the playwright yaml file. The `npx playwright install-deps` command
+is vital to get it working
 
 # Create T3 App
 
