@@ -1,3 +1,8 @@
+# Deployment Help
+
+Note that you will have to visit Vercel (or your preferred hoster) and modify the deployment protection to allow the github action package to visit the preview URL.
+For free tier users, the option for this is to disable protection entirely (for vercel users)
+
 # Create T3 App
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
