@@ -19,10 +19,8 @@ jobs:
           max_timeout: 400
   test:
     needs: test_setup
-    timeout-minutes: 60
+    timeout-minutes: 10
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_BASE_URL: ${{ secrets.NEXT_PUBLIC_BASE_URL }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -34,6 +32,8 @@ jobs:
         run: yarn playwright install
       - name: Run Playwright tests
         run: npx playwright test
+        env:
+          PLAYWRIGHT_TEST_BASE_URL: ${{ needs.test_setup.outputs.preview_url }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
